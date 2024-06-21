@@ -20,6 +20,7 @@ import {
   Stack,
 } from "@mui/material";
 import { testAvatar } from "../../assets/images";
+import { Link } from "react-router-dom";
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -29,15 +30,15 @@ const StyledToolbar = styled(Toolbar)({
 const CNavbar = () => {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef(null);
-  const [isLogin, setIsLogin] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const handleLogin = () => {
-    setIsLogin(true);
+    setIsAuthenticated(true);
     console.log("Run login");
   };
   const handleLogout = () => {
     handleClose();
-    setIsLogin(false);
+    setIsAuthenticated(false);
     console.log("Run logout");
   };
   const handleToggle = () => {
@@ -92,7 +93,7 @@ const CNavbar = () => {
         </Stack>
 
         {/* avatar */}
-        {isLogin ? (
+        {isAuthenticated ? (
           <Stack direction="row" alignItems="center" spacing={3}>
             <Avatar src={testAvatar} spacing={2} />
             <Button
@@ -139,9 +140,7 @@ const CNavbar = () => {
                             onKeyDown={handleListKeyDown}
                           >
                             <MenuItem onClick={handleClose}>Profile</MenuItem>
-                            <MenuItem onClick={handleClose}>
-                              My account
-                            </MenuItem>
+
                             <MenuItem
                               onClick={() => {
                                 handleLogout();
