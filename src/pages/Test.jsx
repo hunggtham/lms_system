@@ -1,4 +1,3 @@
-import { Button } from "@mui/material";
 import React, { useState } from "react";
 import CButton from "../component/CButton";
 
@@ -10,9 +9,11 @@ const Test = () => {
   };
   return (
     <>
-      <CButton sx={{ padding: "20px" }} onClick={() => handleClick()}>
-        Test
-      </CButton>
+      <CButton
+        sx={{ width: "50px" }}
+        onClick={() => handleClick()}
+        label="Test"
+      />
       <div>{count}</div>
     </>
   );
