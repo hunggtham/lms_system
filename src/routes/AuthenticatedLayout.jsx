@@ -15,8 +15,8 @@ const AuthenticatedLayout = ({ component: Component, ...rest }) => (
     }
   />
 );
-const AuthenticateLayout = observer(AuthenticateLayoutView);
-export default AuthenticateLayout;
+const AuthenticateRoute = observer(AuthenticatedLayout);
+export default AuthenticateRoute;
 // Sử dụng trong ứng dụng
 {
   /* <AuthenticatedRoute path="/profile" component={ProfilePage} /> */

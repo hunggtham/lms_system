@@ -1,4 +1,5 @@
 import React from "react";
+import ProfilePage from "../pages/user/Profile";
 
 const AppRoutes = () => {
   return (
@@ -7,6 +8,8 @@ const AppRoutes = () => {
       <Route path="/course" element={<Course />} />
       <Route path="/blog" element={<Blog />} />
       <Route path="/faq" element={<Blog />} />
+
+      <AuthenticatedRoute path="/profile" component={ProfilePage} />
     </Routes>
   );
 };

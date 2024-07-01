@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
@@ -20,8 +21,6 @@ import {
   Stack,
 } from "@mui/material";
 import { testAvatar } from "../../assets/images";
-import { Link } from "react-router-dom";
-
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
   justifyContent: "space-between",
@@ -30,17 +29,17 @@ const StyledToolbar = styled(Toolbar)({
 const CNavbar = () => {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
 
-  const handleLogin = () => {
-    setIsAuthenticated(true);
-    console.log("Run login");
-  };
-  const handleLogout = () => {
-    handleClose();
-    setIsAuthenticated(false);
-    console.log("Run logout");
-  };
+  // const handleLogin = () => {
+  //   setIsAuthenticated(true);
+  //   console.log("Run login");
+  // };
+  // const handleLogout = () => {
+  //   handleClose();
+  //   setIsAuthenticated(false);
+  //   console.log("Run logout");
+  // };
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
   };
@@ -139,12 +138,14 @@ const CNavbar = () => {
                             aria-labelledby="composition-button"
                             onKeyDown={handleListKeyDown}
                           >
-                            <MenuItem onClick={handleClose}>Profile</MenuItem>
+                            <MenuItem onClick={handleClose}>
+                              <Link to="/profile">Profile</Link>
+                            </MenuItem>
 
                             <MenuItem
-                              onClick={() => {
-                                handleLogout();
-                              }}
+                            // onClick={() => {
+                            //   handleLogout();
+                            // }}
                             >
                               Logout
                             </MenuItem>
@@ -159,7 +160,10 @@ const CNavbar = () => {
           </Stack>
         ) : (
           <Stack>
-            <Button sx={{ color: "#fff" }} onClick={() => handleLogin()}>
+            <Button
+              sx={{ color: "#fff" }}
+              //  onClick={() => handleLogin()}
+            >
               Login
             </Button>
           </Stack>

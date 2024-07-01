@@ -27,8 +27,8 @@ const ProtectedLayoutView = ({
     }
   />
 );
-const ProtectedLayout = observer(ProtectedLayoutView);
-export default ProtectedLayout;
+const ProtectedRoute = observer(ProtectedLayoutView);
+export default ProtectedRoute;
 // Sử dụng trong ứng dụng
 {
   /* <ProtectedRoute path="/admin" component={AdminPage} requiredRole="admin" /> */
